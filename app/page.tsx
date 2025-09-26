@@ -11,8 +11,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
-      <Footer />
       <WhatsappIcon />
+      <Footer />
     </>
   );
 }
