@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -18,22 +19,30 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-dark shadow-md">
+    <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
-        <Link
-          href="/"
-          className="text-primary font-bold text-2xl tracking-wide"
-        >
-          Fizsee<span className="text-white">Design</span>
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/logo-bg.png"
+            alt="Fizsee Designs Logo"
+            width={140}
+            height={60}
+            priority
+            className="object-contain"
+          />
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 text-white font-medium">
+        <ul className="hidden md:flex gap-8 text-gray-900 font-medium">
           {navLinks.map((link) => (
             <li key={link.href} className="relative">
               <Link href={link.href}>
-                <span className="hover:text-primary transition-colors duration-300">
+                <span
+                  className={`hover:text-primary transition-colors duration-300 ${
+                    pathname === link.href ? "text-primary" : ""
+                  }`}
+                >
                   {link.name}
                 </span>
               </Link>
@@ -49,7 +58,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white text-2xl"
+          className="md:hidden text-gray-900 text-2xl"
           onClick={() => setOpen(!open)}
         >
           {open ? <FaTimes /> : <FaBars />}
@@ -62,7 +71,7 @@ export default function Navbar() {
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
-          className="md:hidden bg-dark text-white absolute top-16 left-0 w-full shadow-lg"
+          className="md:hidden bg-white text-gray-900 absolute top-16 left-0 w-full shadow-lg"
         >
           <ul className="flex flex-col items-center py-6 gap-6 font-medium">
             {navLinks.map((link) => (
