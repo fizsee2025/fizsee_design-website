@@ -8,6 +8,25 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  const socialLinks = [
+    {
+      icon: FaFacebookF,
+      url: "https://www.facebook.com/",
+    },
+    {
+      icon: FaInstagram,
+      url: "https://www.instagram.com/fizsee_designs/",
+    },
+    {
+      icon: FaLinkedinIn,
+      url: "http://linkedin.com/",
+    },
+    {
+      icon: FaTwitter,
+      url: "https://twitter.com/",
+    },
+  ];
+
   return (
     <footer className="bg-dark text-gray-300 pt-16 pb-8 relative overflow-hidden">
       {/* Gradient Overlay */}
@@ -27,22 +46,27 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
+          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">
               Quick Links
             </h3>
             <ul className="space-y-3">
               {["Home", "About", "Services", "Projects", "Contact"].map(
-                (item) => (
-                  <li key={item}>
-                    <a
-                      href={`/${item.toLowerCase()}`}
-                      className="hover:text-primary transition duration-300"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                )
+                (item) => {
+                  const link = item === "Home" ? "/" : `/${item.toLowerCase()}`;
+
+                  return (
+                    <li key={item}>
+                      <a
+                        href={link}
+                        className="hover:text-primary transition duration-300"
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  );
+                }
               )}
             </ul>
           </div>
@@ -76,30 +100,41 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
             <p className="text-gray-400 text-sm mb-3">
-              #123, Main Road, Bangalore, India
+              No. 32, Ramanujam Street, Madurantakam, Chengalpattu - 603 306
             </p>
-            <p className="text-gray-400 text-sm mb-3">+91 98765 43210</p>
-            <p className="text-gray-400 text-sm mb-6">info@fizsee.com</p>
+            <p className="text-gray-400 text-sm mb-3">+91 95665 41252</p>
+            <p className="text-gray-400 text-sm mb-6">
+              fizseedesigns2021@gmail.com
+            </p>
 
             <div className="flex space-x-4">
-              {[FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter].map(
-                (Icon, idx) => (
-                  <a
-                    key={idx}
-                    href="#"
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-primary/20 text-primary hover:bg-primary hover:text-white transition-all duration-300"
-                  >
-                    <Icon size={16} />
-                  </a>
-                )
-              )}
+              {socialLinks.map(({ icon: Icon, url }, idx) => (
+                <a
+                  key={idx}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-primary/20 text-primary hover:bg-primary hover:text-white transition-all duration-300"
+                >
+                  <Icon size={16} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Divider */}
         <div className="border-t border-gray-700 mt-12 pt-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Fizsee Designs. All Rights Reserved.
+          © {new Date().getFullYear()} Fizsee Designs. All Rights Reserved. |
+          Developed by{" "}
+          <a
+            href="https://growbranz.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary"
+          >
+            Grow Branz
+          </a>
         </div>
       </div>
     </footer>

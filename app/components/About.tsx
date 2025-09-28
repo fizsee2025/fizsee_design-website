@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 
 const founders = [
   {
-    name: "Mr. A. Founder",
+    name: "Mr. Hussain Ahamed  MS",
     role: "Founder & CEO",
     img: "/700.JPG", // replace with real image
   },
   {
-    name: "Mr. B. Co-Founder",
+    name: "Mr. H afizudeen",
     role: "Co-Founder & Director",
     img: "/images/cofounder.jpg", // replace with real image
   },

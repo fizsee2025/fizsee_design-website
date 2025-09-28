@@ -30,20 +30,22 @@ const Contact = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <FaPhoneAlt className="text-[#D1E7DD] text-2xl" />
-              <p className="text-gray-200">+91 98765 43210</p>
+              <p className="text-gray-200">+91 95665 41252</p>
             </div>
             <div className="flex items-center gap-4">
               <FaEnvelope className="text-[#D1E7DD] text-2xl" />
-              <p className="text-gray-200">contact@fizsee.com</p>
+              <p className="text-gray-200">fizseedesigns2021@gmail.com</p>
             </div>
             <div className="flex items-center gap-4">
               <FaMapMarkerAlt className="text-[#D1E7DD] text-2xl" />
-              <p className="text-gray-200">Chennai, Tamil Nadu, India</p>
+              <p className="text-gray-200">
+                No. 32, Ramanujam Street, Madurantakam, Chengalpattu - 603 306
+              </p>
             </div>
             <div className="flex items-center gap-4">
               <FaWhatsapp className="text-[#D1E7DD] text-2xl" />
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919566541252"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-200 hover:underline"
