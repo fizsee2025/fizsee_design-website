@@ -7,7 +7,7 @@ const founders = [
   {
     name: "Mr. Hussain Ahamed MS",
     role: "Founder & CEO",
-    img: "/700.JPG", // replace with real image
+    img: "/700.jpg", // replace with real image
   },
   {
     name: "Mr. Afizudeen H",
