@@ -65,7 +65,7 @@ const Contact = () => {
             <input
               type="hidden"
               name="access_key"
-              value="YOUR_WEB3FORMS_ACCESS_KEY"
+              value="80e59204-d542-42e8-b0c7-f988a94dcb42"
             />
 
             <div className="grid sm:grid-cols-2 gap-6">
