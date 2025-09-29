@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const founders = [
   {
-    name: "Mr. Hussain Ahamed  MS",
+    name: "Mr. Hussain Ahamed MS",
     role: "Founder & CEO",
     img: "/700.JPG", // replace with real image
   },
@@ -18,7 +18,7 @@ const founders = [
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-white relative">
+    <section id="about" className="pt-28 pb-20 bg-white relative">
       <div className="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
         {/* Left: Image */}
         <motion.div

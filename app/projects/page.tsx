@@ -12,7 +12,9 @@ const ProjectsPage = () => {
       <Navbar />
 
       {/* Projects Section */}
-      <Projects />
+      <div className="pt-28">
+        <Projects />
+      </div>
 
       {/* WhatsApp Floating Icon */}
       <WhatsappIcon />

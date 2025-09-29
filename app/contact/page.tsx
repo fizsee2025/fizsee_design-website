@@ -13,7 +13,9 @@ const ContactPage = () => {
       <Navbar />
 
       {/* Contact Section */}
-      <Contact />
+      <div className="pt-28">
+        <Contact />
+      </div>
 
       {/* WhatsApp Floating Icon */}
       <WhatsappIcon />

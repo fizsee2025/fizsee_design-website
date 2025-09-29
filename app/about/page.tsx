@@ -1,10 +1,12 @@
 "use client";
+
 import React from "react";
 import Navbar from "../components/NavBar";
 import About from "../components/About";
 import Footer from "../components/Footer";
 import WhatsappIcon from "../components/WhatsappIcon";
 import { motion } from "framer-motion";
+import { FaUsers, FaShieldAlt, FaLightbulb } from "react-icons/fa";
 
 const AboutPage = () => {
   return (
@@ -12,7 +14,9 @@ const AboutPage = () => {
       <Navbar />
 
       {/* About Section */}
-      <About />
+      <div className="pt-28">
+        <About />
+      </div>
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white">
@@ -27,8 +31,9 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="p-6 border border-gray-200 rounded-2xl shadow hover:shadow-xl transition"
+              className="p-6 border border-gray-200 rounded-2xl shadow hover:shadow-xl transition flex flex-col items-center"
             >
+              <FaUsers className="text-primary text-4xl mb-4" />
               <h3 className="text-xl font-semibold text-dark mb-2">
                 Expert Team
               </h3>
@@ -43,8 +48,9 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="p-6 border border-gray-200 rounded-2xl shadow hover:shadow-xl transition"
+              className="p-6 border border-gray-200 rounded-2xl shadow hover:shadow-xl transition flex flex-col items-center"
             >
+              <FaShieldAlt className="text-primary text-4xl mb-4" />
               <h3 className="text-xl font-semibold text-dark mb-2">
                 Quality Assurance
               </h3>
@@ -59,8 +65,9 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="p-6 border border-gray-200 rounded-2xl shadow hover:shadow-xl transition"
+              className="p-6 border border-gray-200 rounded-2xl shadow hover:shadow-xl transition flex flex-col items-center"
             >
+              <FaLightbulb className="text-primary text-4xl mb-4" />
               <h3 className="text-xl font-semibold text-dark mb-2">
                 Innovative Solutions
               </h3>
@@ -87,8 +94,9 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition"
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition flex flex-col items-center"
             >
+              <FaLightbulb className="text-primary text-4xl mb-4" />
               <h3 className="text-2xl font-semibold text-dark mb-4">
                 Our Mission
               </h3>
@@ -105,8 +113,9 @@ const AboutPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition"
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition flex flex-col items-center"
             >
+              <FaUsers className="text-primary text-4xl mb-4" />
               <h3 className="text-2xl font-semibold text-dark mb-4">
                 Our Vision
               </h3>

@@ -11,8 +11,11 @@ const ServicesPage = () => {
     <>
       <Navbar />
 
-      {/* Services Section */}
-      <Services />
+      {/* Add padding-top to prevent overlap with fixed navbar */}
+      <div className="pt-28">
+        {/* Services Section */}
+        <Services />
+      </div>
 
       {/* WhatsApp Floating Icon */}
       <WhatsappIcon />
