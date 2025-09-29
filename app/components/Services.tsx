@@ -102,7 +102,7 @@ const Services = () => {
                   href="/services"
                   className="block w-full text-center px-5 py-2 rounded-lg bg-[#365042] text-white font-medium shadow-md hover:bg-[#2b3e36] transition duration-300"
                 >
-                  Learn More
+                  Know More
                 </a>
               </div>
             </motion.div>

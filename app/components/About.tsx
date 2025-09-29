@@ -10,7 +10,7 @@ const founders = [
     img: "/700.JPG", // replace with real image
   },
   {
-    name: "Mr. H afizudeen",
+    name: "Mr. Afizudeen H",
     role: "Co-Founder & Director",
     img: "/images/cofounder.jpg", // replace with real image
   },

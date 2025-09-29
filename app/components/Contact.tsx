@@ -1,19 +1,56 @@
 // components/Contact.tsx
 "use client";
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
   FaWhatsapp,
 } from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast";
 
 const Contact = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    setLoading(true);
+
+    const formData = new FormData(formRef.current);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success("Message sent successfully!");
+        formRef.current.reset();
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section
       id="contact"
       className="py-20 bg-gradient-to-b from-[#365042] to-[#3C5246] text-white"
     >
+      {/* React Hot Toast Container */}
+      <Toaster position="top-right" />
+
       <div className="container mx-auto px-6 md:px-12">
         {/* Heading */}
         <div className="text-center mb-12">
@@ -57,11 +94,11 @@ const Contact = () => {
 
           {/* Contact Form */}
           <form
-            action="https://api.web3forms.com/submit"
-            method="POST"
+            ref={formRef}
+            onSubmit={handleSubmit}
             className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg space-y-6"
           >
-            {/* Replace with your Web3Forms access key */}
+            {/* Web3Forms access key */}
             <input
               type="hidden"
               name="access_key"
@@ -108,9 +145,12 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="w-full py-3 rounded-lg bg-[#D1E7DD] text-[#365042] font-semibold hover:bg-white hover:text-[#3C5246] transition duration-300"
+              disabled={loading}
+              className={`w-full py-3 rounded-lg bg-[#D1E7DD] text-[#365042] font-semibold hover:bg-white hover:text-[#3C5246] transition duration-300 ${
+                loading ? "opacity-70 cursor-not-allowed" : ""
+              }`}
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
