@@ -28,12 +28,12 @@ export const metadata: Metadata = {
     "commercial projects",
     "Fizsee Designs",
   ],
-  authors: [{ name: "Fizsee Designs", url: "https://www.fizsee.com" }],
+  authors: [{ name: "Fizsee Designs", url: "https://www.fizseedesigns.com" }],
   openGraph: {
     title: "Fizsee Designs",
     description:
       "Expert architectural, interior, and façade solutions for modern spaces.",
-    url: "https://www.fizsee.com",
+    url: "https://www.fizseedesigns.com",
     siteName: "Fizsee Designs",
     images: [
       {
