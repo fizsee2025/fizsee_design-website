@@ -10,33 +10,33 @@ import "slick-carousel/slick/slick-theme.css";
 const projects = [
   {
     title: "Corporate Facade",
-    desc: "ACP Cladding & Glass Façade with premium finishes for modern offices.",
-    img: "/hero.jpg",
+    desc: "Triplicane project..with video wall and led 3d letters… completed in 20days",
+    img: "/projects/project1.jpg",
   },
   {
     title: "Retail & Shopping Spaces",
     desc: "Media Façade with LED integration to enhance brand visibility.",
-    img: "/hero2.jpg",
+    img: "/projects/project2.jpg",
   },
   {
     title: "Luxury Residences",
     desc: "Modern interiors, glazing, and signage solutions for elegant living.",
-    img: "/hero3.jpg",
+    img: "/projects/project3.jpg",
   },
   {
     title: "Commercial Office Complex",
     desc: "Durable ACP Cladding & structural glazing for high-rise buildings.",
-    img: "/hero4.jpg",
+    img: "/projects/project4.jpg",
   },
   {
     title: "Hospitality Exteriors",
     desc: "LED Cove Lighting & façade design for hotels and resorts.",
-    img: "/hero5.jpg",
+    img: "/projects/project5.jpg",
   },
   {
     title: "Architectural GFRC Elements",
     desc: "Custom GFRC panels for decorative facades, interiors, and outdoor spaces.",
-    img: "/hero6.jpg",
+    img: "/projects/project6.jpg",
   },
 ];
 
