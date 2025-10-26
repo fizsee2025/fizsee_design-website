@@ -4,11 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const founders = [
-  {
-    name: "Mr. Hussain Ahamed MS",
-    role: "Founder & CEO",
-    img: "/700.JPG",
-  },
+  { name: "Mr. Hussain Ahamed MS", role: "Founder & CEO", img: "/700.JPG" },
   {
     name: "Mr. Afizudeen H",
     role: "Co-Founder & Director",
@@ -33,7 +29,6 @@ const About = () => {
       <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#a8ff78]/20 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        {/* Hero Section */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -51,7 +46,6 @@ const About = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30"></div>
           </motion.div>
 
-          {/* Text + Stats */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -119,7 +113,7 @@ const About = () => {
               href="/contact"
               className="inline-block px-6 py-3 rounded-xl bg-gradient-to-r from-[#a8ff78] to-[#78ffd6] text-black font-semibold shadow-lg hover:scale-105 transform transition duration-300"
             >
-              Let's Connect
+              Let&apos;s Connect
             </a>
           </motion.div>
         </div>
