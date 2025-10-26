@@ -55,19 +55,45 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="py-20 bg-gradient-to-b from-white via-gray-50 to-[#e8f0eb] relative"
+      className="py-24 bg-gradient-to-b from-[#f0f5f0] via-[#e8f0eb] to-[#dce7dd] relative overflow-hidden"
     >
-      <div className="container mx-auto px-6 md:px-12">
+      {/* Decorative Background Blur Circles */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 0.1 }}
+          transition={{ duration: 3, repeat: Infinity, repeatType: "mirror" }}
+          className="absolute w-72 h-72 bg-gradient-to-tr from-[#78ffd6] to-[#a8ff78] rounded-full blur-3xl -top-24 -left-24"
+        />
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 0.1 }}
+          transition={{ duration: 3, repeat: Infinity, repeatType: "mirror" }}
+          className="absolute w-72 h-72 bg-gradient-to-tr from-[#D1E7DD] to-[#78ffd6] rounded-full blur-3xl -bottom-24 -right-24"
+        />
+      </div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
         {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#365042] mb-4">
-            Our <span className="text-[#3C5246]">Services</span>
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Delivering innovative, durable, and aesthetic solutions that
-            transform your vision into reality. From exterior façades to
-            interiors and signage, we craft spaces that inspire.
-          </p>
+        <div className="text-center mb-20">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#a8ff78] to-[#78ffd6] mb-4"
+          >
+            Our <span className="text-[#365042]">Services</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-gray-700 max-w-3xl mx-auto text-lg"
+          >
+            Innovative and aesthetic solutions to transform your vision into
+            reality. From façades to interiors and signage, we craft spaces that
+            inspire.
+          </motion.p>
         </div>
 
         {/* Services Grid */}
@@ -77,30 +103,30 @@ const Services = () => {
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              transition={{ duration: 0.7, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col hover:shadow-2xl hover:-translate-y-2 transform transition duration-500"
+              className="flex flex-col bg-white/10 backdrop-blur-xl rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transform transition-all duration-500 overflow-hidden"
             >
               {/* Icon + Title + Desc */}
               <div className="p-6 flex-1 flex flex-col">
-                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-[#365042]/10 text-[#365042] mb-5">
+                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-tr from-[#78ffd6]/20 to-[#a8ff78]/20 text-[#365042] mb-5 transition-transform transform hover:scale-110">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-[#365042] mb-3">
+                <h3 className="text-2xl font-bold text-[#365042] mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed flex-1">
+                <p className="text-gray-700 flex-1 text-sm leading-relaxed">
                   {service.desc}
                 </p>
               </div>
 
               {/* Image */}
-              <div className="relative w-full h-44 md:h-48">
+              <div className="relative w-full h-52 md:h-60">
                 <Image
                   src={service.img}
                   alt={service.title}
                   fill
-                  className="object-cover"
+                  className="object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
@@ -108,7 +134,7 @@ const Services = () => {
               <div className="p-6">
                 <a
                   href="/services"
-                  className="block w-full text-center px-5 py-3 rounded-xl bg-[#365042] text-white font-semibold shadow-md hover:bg-[#2b3e36] transition duration-300"
+                  className="block w-full text-center px-5 py-3 rounded-xl bg-[#365042] text-white font-semibold shadow-md hover:bg-[#2b3e36] hover:shadow-lg transition duration-300"
                 >
                   Know More
                 </a>

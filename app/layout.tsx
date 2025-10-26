@@ -3,7 +3,7 @@ import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-// Load Google Fonts
+// Google Fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -46,9 +46,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fizsee Designs",
+    description:
+      "Expert architectural, interior, and façade solutions for modern spaces.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
 };
 
-// Root Layout Component
+// Root Layout
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -57,7 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* ✅ Google Analytics Script */}
+        {/* Google Analytics */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-Z8QX0T5SKN"
@@ -70,12 +81,35 @@ export default function RootLayout({
             gtag('config', 'G-Z8QX0T5SKN');
           `}
         </Script>
+
+        {/* Structured Data (JSON-LD) */}
+        <Script id="structured-data" type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Fizsee Designs",
+              "url": "https://www.fizseedesigns.com",
+              "logo": "https://www.fizseedesigns.com/logo.png",
+              "sameAs": [
+                "https://www.facebook.com/fizseedesigns",
+                "https://www.instagram.com/fizseedesigns",
+                "https://www.linkedin.com/company/fizseedesigns"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-9566541252",
+                "contactType": "Customer Service",
+                "areaServed": "IN"
+              }
+            }
+          `}
+        </Script>
       </head>
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900`}
       >
-        {/* Optional global wrapper for a brochure-style layout */}
         <div className="min-h-screen flex flex-col justify-between">
           {children}
         </div>

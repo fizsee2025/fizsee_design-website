@@ -8,6 +8,7 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -18,7 +19,6 @@ const Contact = () => {
     if (!formRef.current) return;
 
     setLoading(true);
-
     const formData = new FormData(formRef.current);
 
     try {
@@ -26,9 +26,7 @@ const Contact = () => {
         method: "POST",
         body: formData,
       });
-
       const result = await response.json();
-
       if (result.success) {
         toast.success("Message sent successfully!");
         formRef.current.reset();
@@ -43,62 +41,100 @@ const Contact = () => {
     }
   };
 
+  const contactInfo = [
+    { icon: <FaPhoneAlt />, text: "+91 95665 41252" },
+    { icon: <FaEnvelope />, text: "fizseedesigns2021@gmail.com" },
+    {
+      icon: <FaMapMarkerAlt />,
+      text: "No. 32, Ramanujam Street, Madurantakam, Chengalpattu - 603 306",
+    },
+    {
+      icon: <FaWhatsapp />,
+      text: "Chat on WhatsApp",
+      link: "https://wa.me/919566541252",
+    },
+  ];
+
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-b from-[#365042] to-[#3C5246] text-white"
+      className="relative py-20 bg-gradient-to-b from-[#365042] via-[#2f4538] to-[#3C5246] text-white overflow-hidden"
     >
-      {/* React Hot Toast Container */}
       <Toaster position="top-right" />
+      {/* Background decorative shapes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 0.1 }}
+          transition={{ duration: 2, repeat: Infinity, repeatType: "mirror" }}
+          className="absolute w-96 h-96 bg-gradient-to-r from-[#78ffd6] to-[#a8ff78] rounded-full blur-3xl -top-32 -left-32"
+        />
+        <motion.div
+          initial={{ x: 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 0.1 }}
+          transition={{ duration: 2, repeat: Infinity, repeatType: "mirror" }}
+          className="absolute w-96 h-96 bg-gradient-to-r from-[#D1E7DD] to-[#78ffd6] rounded-full blur-3xl -bottom-32 -right-32"
+        />
+      </div>
 
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
         {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#a8ff78] to-[#78ffd6]"
+          >
             Get In <span className="text-[#D1E7DD]">Touch</span>
-          </h2>
-          <p className="text-gray-200 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-gray-200 max-w-3xl mx-auto text-lg"
+          >
             Have a project in mind? Let’s build something amazing together.
-          </p>
+          </motion.p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Info */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <FaPhoneAlt className="text-[#D1E7DD] text-2xl" />
-              <p className="text-gray-200">+91 95665 41252</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <FaEnvelope className="text-[#D1E7DD] text-2xl" />
-              <p className="text-gray-200">fizseedesigns2021@gmail.com</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <FaMapMarkerAlt className="text-[#D1E7DD] text-2xl" />
-              <p className="text-gray-200">
-                No. 32, Ramanujam Street, Madurantakam, Chengalpattu - 603 306
-              </p>
-            </div>
-            <div className="flex items-center gap-4">
-              <FaWhatsapp className="text-[#D1E7DD] text-2xl" />
-              <a
-                href="https://wa.me/919566541252"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-200 hover:underline"
+          <div className="space-y-8">
+            {contactInfo.map((info, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="flex items-center gap-5 bg-white/10 backdrop-blur-lg p-5 rounded-2xl shadow-lg hover:shadow-2xl transition-all"
               >
-                Chat on WhatsApp
-              </a>
-            </div>
+                <div className="text-[#D1E7DD] text-3xl">{info.icon}</div>
+                {info.link ? (
+                  <a
+                    href={info.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-200 hover:text-[#78ffd6] transition"
+                  >
+                    {info.text}
+                  </a>
+                ) : (
+                  <p className="text-gray-200">{info.text}</p>
+                )}
+              </motion.div>
+            ))}
           </div>
 
           {/* Contact Form */}
-          <form
+          <motion.form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg space-y-6"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="bg-white/10 backdrop-blur-xl p-10 rounded-3xl shadow-xl space-y-6 border border-white/20"
           >
-            {/* Web3Forms access key */}
             <input
               type="hidden"
               name="access_key"
@@ -111,14 +147,14 @@ const Contact = () => {
                 name="name"
                 placeholder="Your Name"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D1E7DD]"
+                className="w-full px-5 py-3 rounded-xl bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#78ffd6]"
               />
               <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D1E7DD]"
+                className="w-full px-5 py-3 rounded-xl bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#78ffd6]"
               />
             </div>
             <input
@@ -126,33 +162,33 @@ const Contact = () => {
               name="phone"
               placeholder="Your Phone"
               required
-              className="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D1E7DD]"
+              className="w-full px-5 py-3 rounded-xl bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#78ffd6]"
             />
             <input
               type="text"
               name="service"
               placeholder="Service Required"
               required
-              className="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D1E7DD]"
+              className="w-full px-5 py-3 rounded-xl bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#78ffd6]"
             />
             <textarea
               name="message"
               rows={4}
               placeholder="Your Message"
               required
-              className="w-full px-4 py-3 rounded-lg bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#D1E7DD]"
+              className="w-full px-5 py-3 rounded-xl bg-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#78ffd6]"
             ></textarea>
 
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-3 rounded-lg bg-[#D1E7DD] text-[#365042] font-semibold hover:bg-white hover:text-[#3C5246] transition duration-300 ${
+              className={`w-full py-3 rounded-xl bg-gradient-to-r from-[#78ffd6] to-[#a8ff78] text-black font-semibold hover:scale-105 transform transition duration-300 ${
                 loading ? "opacity-70 cursor-not-allowed" : ""
               }`}
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>

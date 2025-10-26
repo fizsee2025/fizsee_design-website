@@ -11,7 +11,7 @@ const navLinks = [
   { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
+  { name: "Gallery", href: "/gallery" }, // Added Gallery
 ];
 
 export default function Navbar() {
@@ -34,7 +34,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 text-gray-900 font-medium">
+        <ul className="hidden md:flex gap-6 text-gray-900 font-medium items-center">
           {navLinks.map((link) => (
             <li key={link.href} className="relative">
               <Link href={link.href}>
@@ -54,6 +54,16 @@ export default function Navbar() {
               )}
             </li>
           ))}
+
+          {/* Contact CTA Button */}
+          <li>
+            <Link
+              href="/contact"
+              className="ml-4 px-4 py-2 bg-primary text-white rounded-lg font-medium shadow-md hover:bg-[#2b3e36] transition"
+            >
+              Contact Us
+            </Link>
+          </li>
         </ul>
 
         {/* Mobile Menu Button */}
@@ -89,6 +99,17 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+
+            {/* Mobile Contact CTA */}
+            <li>
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="mt-2 px-4 py-2 bg-primary text-white rounded-lg font-medium shadow-md hover:bg-[#2b3e36] transition"
+              >
+                Contact Us
+              </Link>
+            </li>
           </ul>
         </motion.div>
       )}
