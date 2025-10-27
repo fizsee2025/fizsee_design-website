@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false);
-  const [popupStage, setPopupStage] = useState(0); // 0 = not shown yet
+  const [popupStage, setPopupStage] = useState<0 | 1 | 2 | 3>(0);
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -20,13 +20,12 @@ export default function Home() {
     const showPopupWithDelay = (delaySeconds: number, stage: number) => {
       timer = setTimeout(() => {
         setShowPopup(true);
-        setPopupStage(stage);
+        setPopupStage(stage as 0 | 1 | 2 | 3);
       }, delaySeconds * 1000);
     };
 
-    // 💡 Use smaller numbers while testing (5 → 300 for real)
     if (popupStage === 0) {
-      showPopupWithDelay(5, 1); // change to 300 for production
+      showPopupWithDelay(5, 1);
     } else if (popupStage === 1) {
       showPopupWithDelay(20, 2);
     } else if (popupStage === 2) {
@@ -38,8 +37,9 @@ export default function Home() {
 
   const handleClosePopup = () => {
     setShowPopup(false);
-    setPopupStage((prev: any) => (prev < 3 ? prev + 1 : prev));
+    setPopupStage((prev) => (prev < 3 ? ((prev + 1) as 0 | 1 | 2 | 3) : prev));
   };
+
   return (
     <>
       <Navbar />
@@ -50,7 +50,6 @@ export default function Home() {
       <Contact />
       <WhatsappIcon />
       <Footer />
-
       <ConsultationPopup showPopup={showPopup} onClose={handleClosePopup} />
     </>
   );
