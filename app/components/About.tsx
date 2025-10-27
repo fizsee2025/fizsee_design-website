@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import ConsultationPopup from "./ConsultationPopup"; // ✅ Import popup
 
 const founders = [
   { name: "Mr. Hussain Ahamed MS", role: "Founder & CEO", img: "/700.JPG" },
@@ -19,6 +20,8 @@ const stats = [
 ];
 
 const About = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
   return (
     <section
       id="about"
@@ -108,16 +111,22 @@ const About = () => {
               ))}
             </div>
 
-            {/* CTA */}
-            <a
-              href="/contact"
+            {/* ✅ Popup Trigger Button */}
+            <button
+              onClick={() => setShowPopup(true)}
               className="inline-block px-6 py-3 rounded-xl bg-gradient-to-r from-[#a8ff78] to-[#78ffd6] text-black font-semibold shadow-lg hover:scale-105 transform transition duration-300"
             >
               Let&apos;s Connect
-            </a>
+            </button>
           </motion.div>
         </div>
       </div>
+
+      {/* ✅ Render the popup */}
+      <ConsultationPopup
+        showPopup={showPopup}
+        onClose={() => setShowPopup(false)}
+      />
     </section>
   );
 };

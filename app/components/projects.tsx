@@ -79,55 +79,62 @@ const ProjectModal = ({
   onClose: () => void;
 }) => {
   if (!project) return null;
+
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="bg-white rounded-3xl w-full max-w-5xl overflow-hidden shadow-2xl border border-gray-200"
+        className="bg-white rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden"
       >
-        <div className="relative h-80 w-full">
+        {/* Header with Close Button */}
+        <div className="flex justify-between items-center p-4 border-b bg-[#f8faf9]">
+          <h2 className="text-xl md:text-2xl font-semibold text-[#365042]">
+            {project.title}
+          </h2>
+          <button
+            onClick={onClose}
+            className="text-gray-600 hover:text-black text-2xl leading-none"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Image Slider */}
+        <div className="relative w-full h-56 sm:h-72 md:h-80">
           <Slider dots infinite speed={500} slidesToShow={1} slidesToScroll={1}>
             {project.images.map((img, i) => (
-              <div key={i} className="relative h-80 w-full">
+              <div key={i} className="relative w-full h-56 sm:h-72 md:h-80">
                 <Image
                   src={img}
                   alt={project.title}
                   fill
-                  className="object-cover rounded-t-3xl"
+                  className="object-cover"
                 />
               </div>
             ))}
           </Slider>
         </div>
-        <div className="p-6 flex flex-col md:flex-row gap-6 md:gap-10">
-          <div className="flex-1 space-y-3">
-            <h2 className="text-3xl font-bold text-[#365042]">
-              {project.title}
-            </h2>
-            <p className="text-gray-600">{project.desc}</p>
-            <p>
-              <strong>Client:</strong> {project.client}
-            </p>
-            <p>
-              <strong>Location:</strong> {project.location}
-            </p>
-            <p>
-              <strong>Year:</strong> {project.year}
-            </p>
-            <a
-              href="/contact"
-              className="inline-block mt-4 px-6 py-3 bg-[#365042] text-white font-semibold rounded-xl shadow-md hover:bg-[#2b3e36] transition duration-300"
-            >
-              Contact Us
-            </a>
-          </div>
+
+        {/* Modal Content */}
+        <div className="p-4 md:p-6 space-y-3 text-sm md:text-base text-gray-700">
+          <p>{project.desc}</p>
+          <p>
+            <strong>Client:</strong> {project.client}
+          </p>
+          <p>
+            <strong>Location:</strong> {project.location}
+          </p>
+          <p>
+            <strong>Year:</strong> {project.year}
+          </p>
+
           <button
-            onClick={onClose}
-            className="absolute top-4 right-4 text-gray-800 text-3xl"
+            className="mt-4 w-full md:w-auto px-6 py-3 bg-[#365042] text-white rounded-xl shadow hover:bg-[#2b3e36] transition"
+            onClick={() => (window.location.href = "/contact")}
           >
-            ✖
+            Contact Us
           </button>
         </div>
       </motion.div>
