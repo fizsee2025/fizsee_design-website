@@ -124,6 +124,18 @@ const ConsultationPopup: React.FC<ConsultationPopupProps> = ({
               aria-label="Your email"
             />
           </div>
+          <div className="relative">
+            <input
+              type="number"
+              name="number"
+              id="number"
+              required
+              disabled={loading}
+              className="peer w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#2B4A28] outline-none placeholder-black"
+              placeholder="Your Number"
+              aria-label="Your Number"
+            />
+          </div>
 
           <button
             type="submit"
