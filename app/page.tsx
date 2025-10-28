@@ -44,6 +44,54 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+
+      {/* =========================
+          SEO CONTENT (visually hidden but crawlable)
+          Inserted after Hero so UI remains unchanged
+         ========================= */}
+      <section className="sr-only" aria-hidden="false">
+        <h1>
+          Fizsee Designs — Innovative Architecture & Interiors in Tamil Nadu
+        </h1>
+
+        <p>
+          Fizsee Designs is a professional architecture, façade and interior
+          design firm based in Madurantakam, Chengalpattu, Tamil Nadu. We
+          deliver innovative, durable and aesthetic solutions across ACP
+          cladding, glass façades, media façades, signage solutions, project
+          management and full interior contracting.
+        </p>
+
+        <p>
+          Our core services include ACP Cladding, Glass Façades & Glazing
+          (float, toughened, laminated), Media Façades (LED programmable
+          façades), Signage Solutions (LED & acrylic), Project Management, and
+          Interior Services (false ceilings, modular cabins, flooring,
+          painting). Fizsee Designs offers end-to-end turnkey project delivery
+          with a focus on precision, safety and timely handover across Tamil
+          Nadu and pan-India.
+        </p>
+
+        <ul>
+          <li>ACP Cladding — Stylish, durable exterior façades</li>
+          <li>Glass Façades & Glazing — Energy-efficient glazing systems</li>
+          <li>Media Façades — LED and programmable façade solutions</li>
+          <li>Signage Solutions — Custom LED & acrylic signage</li>
+          <li>Project Management — End-to-end supervision & quality control</li>
+          <li>
+            Interior Services — Complete interior contracting and turnkey
+            solutions
+          </li>
+        </ul>
+
+        <p>
+          Address: No. 32, Ramanujam Street, Madurantakam, Chengalpattu -
+          603306, Tamil Nadu. Phone: +91 95665 41252. For consultations and
+          project inquiries, contact Fizsee Designs for tailored architectural,
+          façade and interior solutions across Tamil Nadu.
+        </p>
+      </section>
+
       <About />
       <Services />
       <Projects />
