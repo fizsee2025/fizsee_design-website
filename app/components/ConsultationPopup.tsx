@@ -86,7 +86,7 @@ const ConsultationPopup: React.FC<ConsultationPopupProps> = ({
         </button>
 
         <h2 className="text-2xl font-bold text-gray-800 mb-3">
-          🎉 Get a Free Consultation
+          Get a Free Consultation
         </h2>
         <p className="text-gray-600 mb-6">
           Let us help you grow your business with expert solutions.

@@ -14,8 +14,8 @@ const founders = [
 ];
 
 const stats = [
-  { label: "Projects Completed", value: "120+" },
-  { label: "Happy Clients", value: "85+" },
+  { label: "Projects Completed", value: "50+" },
+  { label: "Happy Clients", value: "25+" },
   { label: "Years of Experience", value: "5+" },
 ];
 
