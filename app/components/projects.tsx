@@ -32,7 +32,7 @@ const projects: ProjectType[] = [
   {
     title: "Women'Z Corner",
     desc: "Executed a modern storefront design for Women'Z Corner, featuring elegant glazing, ACP paneling, and creative signage solutions that enhance visual appeal and brand identity.",
-    images: ["/projects/project3.jpg", "/projects/project3b.jpg"],
+    images: ["/projects/project3.jpg", "/projects/womenz.jpeg"],
     client: "Women'Z Corner",
     location: "Chennai",
     year: "2022",
@@ -52,7 +52,7 @@ const projects: ProjectType[] = [
   {
     title: "SAS Star Tower",
     desc: "Designed and installed a premium façade for SAS Star Tower, featuring LED cove lighting and architectural illumination to enhance the building’s night-time presence.",
-    images: ["/projects/project5.jpg", "/projects/project5b.jpg"],
+    images: ["/projects/project5.jpg", "/projects/sas.jpeg"],
     client: "SAS Star Tower",
     location: "Chennai",
     year: "2022",
@@ -60,7 +60,7 @@ const projects: ProjectType[] = [
   {
     title: "Zeenath Dresses",
     desc: "Custom ACP panel fabrication and installation for Zeenath Dresses located on MC Road, Chennai. The work focused on modern façade finishing and brand-centric visual design.",
-    images: ["/projects/projects8.jpeg", "/projects/project6b.jpg"],
+    images: ["/projects/projects8.jpeg", "/projects/zeenath.jpeg"],
     client: "Zeenath Dresses",
     location: "MC Road, Chennai",
     year: "2024",
@@ -68,7 +68,7 @@ const projects: ProjectType[] = [
   {
     title: "Rainbow",
     desc: "Executed ACP work for Rainbow, featuring precise panel alignment and a clean modern finish that elevated the store’s exterior design and brand presence.",
-    images: ["/projects/rainbow.jpeg", "/projects/project6b.jpg"],
+    images: ["/projects/rainbow.jpeg", "/projects/rainbow1a.jpeg"],
     client: "Rainbow",
     location: "Chennai",
     year: "2024",
@@ -76,7 +76,7 @@ const projects: ProjectType[] = [
   {
     title: "Arabian Sea Food Restaurant",
     desc: "Implemented custom ACP panel and façade work for Arabian Sea Food Restaurant, creating a vibrant and durable exterior design suitable for high-traffic commercial areas.",
-    images: ["/projects/arabian.jpeg", "/projects/project6b.jpg"],
+    images: ["/projects/arabian.jpeg", "/projects/arabian1a.jpeg"],
     client: "Arabian Sea Food Restaurant",
     location: "Chennai",
     year: "2024",
@@ -92,7 +92,7 @@ const projects: ProjectType[] = [
   {
     title: "Meera Stores",
     desc: "Created a striking media façade with LED integration for Meera Stores, improving night-time visibility and enhancing overall brand presentation.",
-    images: ["/projects/project2.jpg", "/projects/project2b.jpg"],
+    images: ["/projects/project2.jpg"],
     client: "Meera Stores",
     location: "Chennai",
     year: "2023",
@@ -100,23 +100,23 @@ const projects: ProjectType[] = [
   {
     title: "Ansar Mobiles",
     desc: "Installed durable ACP cladding and structural glazing solutions for Ansar Mobiles, blending strength and modern design for commercial façade applications.",
-    images: ["/projects/project4.jpg", "/projects/project4b.jpg"],
+    images: ["/projects/project4.jpg", "/projects/ansar1a.jpeg"],
     client: "Ansar Mobiles",
     location: "Chennai",
     year: "2023",
   },
   {
-    title: "Juice Land",
-    desc: "Executed a refreshing storefront design for Juice Land, featuring ACP panel work and LED media integration to attract customers with a modern appeal.",
-    images: ["/projects/projects9.jpeg", "/projects/project2b.jpg"],
-    client: "Juice Land",
+    title: "Jitta's Multi-Cuisine Diner",
+    desc: "Executed a refreshing storefront design for Jitta's Multi-Cuisine Diner, featuring ACP panel work and LED media integration to attract customers with a modern appeal.",
+    images: ["/projects/jittas.jpeg", "/projects/jittas1a.jpeg"],
+    client: "Jitta's Multi-Cuisine Diner",
     location: "Chennai",
     year: "2023",
   },
   {
     title: "NoblQ",
     desc: "Nobl Q is a boutique digital services company with a strong emphasis on AI and the core technologies of SAP, Acumatica, Salesforce, ServiceNow, and Microsoft. Our project focused on delivering premium signage, ACP façade, and glazing solutions that reflected their modern tech-driven identity.",
-    images: ["/projects/projects10.jpeg", "/projects/project3b.jpg"],
+    images: ["/projects/projects10.jpeg", "/projects/noblq.jpeg"],
     client: "NoblQ",
     location: "Chennai",
     year: "2022",
@@ -163,7 +163,17 @@ const ProjectModal = ({
 
         {/* Image Slider */}
         <div className="relative w-full h-56 sm:h-72 md:h-80">
-          <Slider dots infinite speed={500} slidesToShow={1} slidesToScroll={1}>
+          <Slider
+            dots
+            infinite
+            autoplay
+            autoplaySpeed={2500}
+            speed={800}
+            slidesToShow={1}
+            slidesToScroll={1}
+            pauseOnHover={false}
+            arrows={false}
+          >
             {project.images.map((img, i) => (
               <div key={i} className="relative w-full h-56 sm:h-72 md:h-80">
                 <Image
