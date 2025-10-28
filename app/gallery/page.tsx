@@ -42,11 +42,11 @@ const GalleryPage = () => {
         {/* Decorative Shape (optional for wow effect) */}
         <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-48 h-48 bg-[#78ffd6]/20 rounded-full blur-3xl"></div>
 
-        <div className="container mx-auto px-6 md:px-12 text-center relative z-10">
+        <div className="container mx-auto px-6 md:px-12 text-center relative z-10 mt-6">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Our <span className="text-[#78ffd6]">Gallery</span>
           </h1>
-          <p className="text-[#d1e7dd] max-w-2xl mx-auto">
+          <p className="text-white max-w-2xl mx-auto">
             Explore our completed projects, from stunning façades to interior
             spaces, showcasing innovation, precision, and quality craftsmanship.
           </p>
