@@ -40,7 +40,11 @@ const projects: ProjectType[] = [
   {
     title: "Anbu Textiles",
     desc: "Delivered custom GFRC and ACP panel installations for Anbu Textiles, adding a decorative touch to the façade and interiors while ensuring durability and modern aesthetics.",
-    images: ["/projects/project6.jpg", "/projects/project6b.jpg"],
+    images: [
+      "/projects/anbu.jpeg",
+      "/projects/anbu1a.jpeg",
+      "/projects/project6.jpg",
+    ],
     client: "Anbu Textiles",
     location: "Chennai",
     year: "2024",
@@ -116,6 +120,14 @@ const projects: ProjectType[] = [
     client: "NoblQ",
     location: "Chennai",
     year: "2022",
+  },
+  {
+    title: "Jai Home Appliances",
+    desc: "Installed durable ACP cladding and structural glazing solutions for Jai Home Appliances, blending strength and modern design for commercial façade applications.",
+    images: ["/projects/jai.jpeg", "/projects/jai1a.jpeg"],
+    client: "Jai Home Appliances",
+    location: "Chennai",
+    year: "2023",
   },
 ];
 
