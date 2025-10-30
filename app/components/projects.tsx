@@ -19,7 +19,7 @@ interface ProjectType {
 const projects: ProjectType[] = [
   {
     title: "Focus Mens & Boys Wear",
-    desc: "Focus Mens & Boys Wear project completed across three branches — Triplicane, Singaperumal Kovil, and Medavakkam. The work included premium ACP cladding, LED 3D letters, and a full video wall installation, completed within 20 days.",
+    desc: "Focus Mens & Boys Wear project completed across three branches — Pallavaram, Medavakkam, Arumbakkam, Valasaravakkam, Triplicane. The work included premium ACP cladding, LED 3D letters, and a full video wall installation, completed within 20 days.",
     images: [
       "/projects/project1.jpg",
       "/projects/project1b.jpeg",
