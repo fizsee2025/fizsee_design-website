@@ -9,7 +9,12 @@ const founders = [
   {
     name: "Mr. Afizudeen H",
     role: "Co-Founder & Director",
-    img: "/images/cofounder.jpg",
+    img: "/blank-profile.jpg",
+  },
+  {
+    name: "Mr. Kumar",
+    role: "Project Head",
+    img: "/kumar.jpeg",
   },
 ];
 
