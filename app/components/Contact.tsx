@@ -46,6 +46,7 @@ const Contact = () => {
       icon: <FaMapMarkerAlt />,
       text: "No. 32, Ramanujam Street, Madurantakam, Chengalpattu - 603 306",
     },
+    
     {
       icon: <FaWhatsapp />,
       text: "Chat on WhatsApp",
