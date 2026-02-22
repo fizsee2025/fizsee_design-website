@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-poppins",
+});
 // Google Fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -108,7 +113,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased bg-gray-50 text-gray-900`}
       >
         <div className="min-h-screen flex flex-col justify-between">
           {children}
